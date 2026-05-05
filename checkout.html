@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="checkout-container">
+
+  <div class="checkout-box">
+    <h2 id="planTitle">Loading...</h2>
+
+    <form>
+      <label>Email</label>
+      <input type="email" placeholder="you@example.com" required>
+
+      <label>Card Information</label>
+      <input type="text" placeholder="1234 1234 1234 1234">
+      <div class="row">
+        <input type="text" placeholder="MM/YY">
+        <input type="text" placeholder="CVC">
+      </div>
+
+      <label>Name on Card</label>
+      <input type="text" placeholder="Full Name">
+
+      <button type="button" onclick="pay()" class="btn full">Pay</button>
+    </form>
+  </div>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const plan = params.get("plan");
+
+const plans = {
+  basic: { name: "Basic - $5", link: "https://YOUR_LINK_BASIC" },
+  pro: { name: "Pro - $10", link: "https://YOUR_LINK_PRO" },
+  elite: { name: "Elite - $20", link: "https://YOUR_LINK_ELITE" }
+};
+
+document.getElementById("planTitle").innerText = plans[plan]?.name || "Plan";
+
+function pay(){
+  window.location.href = plans[plan].link;
+}
+</script>
+
+</body>
+</html>

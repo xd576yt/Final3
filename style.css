@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0f172a;
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: #020617;
+}
+
+nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.btn {
+  background: #6366f1;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+}
+
+.stats {
+  text-align: center;
+  padding: 50px;
+}
+
+.stat-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.plans {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 12px;
+  width: 220px;
+}
+
+.featured {
+  border: 2px solid #6366f1;
+}
+
+.checkout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.checkout-box {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+}
+
+.checkout-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: none;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.full {
+  width: 100%;
+}
