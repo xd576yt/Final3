@@ -3,7 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <title>About | Skyfall SMP</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b1120;
+      color: #e5e7eb;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: #020617;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #cbd5f5;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .about-container {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .about-hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .about-hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .about-hero p {
+      color: #9ca3af;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .about-card {
+      background: #111827;
+      padding: 20px;
+      border-radius: 12px;
+      transition: 0.2s;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .about-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .about-card ul {
+      padding-left: 18px;
+    }
+
+    .about-cta {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .btn {
+      background: #6366f1;
+      padding: 12px 24px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 15px;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: #4f46e5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #6b7280;
+    }
+  </style>
+
 </head>
 <body>
 
@@ -29,17 +128,16 @@
       <h3>🌍 Our Server</h3>
       <p>
         Skyfall SMP is a custom-built survival multiplayer server focused on 
-        performance, fairness, and long-term progression. Whether you're building, 
-        grinding, or competing, there's always something to do.
+        performance, fairness, and long-term progression.
       </p>
     </div>
 
     <div class="about-card">
       <h3>⚙️ Features</h3>
       <ul>
-        <li>Custom plugins & mechanics</li>
-        <li>Optimized, lag-free gameplay</li>
-        <li>Balanced economy system</li>
+        <li>Custom plugins</li>
+        <li>Lag-free gameplay</li>
+        <li>Balanced economy</li>
         <li>Regular updates</li>
       </ul>
     </div>
@@ -47,16 +145,14 @@
     <div class="about-card">
       <h3>🎉 Community</h3>
       <p>
-        We have an active and friendly community with staff that actually care. 
-        Join events, make teams, and compete with players every day.
+        Friendly players, active staff, and constant events keep the server alive.
       </p>
     </div>
 
     <div class="about-card">
       <h3>🚀 Our Goal</h3>
       <p>
-        Our goal is to create one of the best SMP experiences out there — 
-        fair, fun, and constantly improving based on player feedback.
+        To create one of the best SMP experiences that keeps improving over time.
       </p>
     </div>
 
