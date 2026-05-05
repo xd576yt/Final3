@@ -3,7 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <title>Skyfall SMP</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b1120;
+      color: #e5e7eb;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #020617;
+      position: sticky;
+      top: 0;
+    }
+
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #cbd5f5;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #9ca3af;
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 25px auto;
+    }
+
+    .btn {
+      background: #6366f1;
+      padding: 12px 24px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 60px 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .info div {
+      background: #111827;
+      padding: 20px;
+      border-radius: 12px;
+      transition: 0.2s;
+    }
+
+    .info div:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .info h3 {
+      margin-top: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #6b7280;
+      background: #020617;
+      margin-top: 40px;
+    }
+
+    /* small glow accent */
+    .hero h2 {
+      text-shadow: 0 0 20px rgba(99,102,241,0.4);
+    }
+  </style>
+
 </head>
 <body>
 
@@ -18,22 +123,24 @@
 
 <section class="hero">
   <h2>Skyfall SMP</h2>
-  <p>A clean, competitive Minecraft survival experience.</p>
+  <p>A clean, competitive Minecraft survival experience built for players who want progression, events, and community.</p>
   <a href="store.html" class="btn">Support the Server</a>
 </section>
 
 <section class="info">
   <div>
     <h3>⚡ Optimized</h3>
-    <p>High-performance server with smooth gameplay.</p>
+    <p>High-performance server with smooth gameplay and no lag.</p>
   </div>
+
   <div>
     <h3>🌍 Custom World</h3>
-    <p>Unique terrain and features you won’t find anywhere else.</p>
+    <p>Unique terrain, structures, and survival enhancements.</p>
   </div>
+
   <div>
     <h3>🎉 Events</h3>
-    <p>Frequent events with real rewards.</p>
+    <p>Weekly events with rewards, competitions, and challenges.</p>
   </div>
 </section>
 
