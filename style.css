@@ -1,20 +1,20 @@
 body {
   margin: 0;
-  font-family: Arial;
-  background: #0f172a;
-  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0b1120;
+  color: #e5e7eb;
 }
 
 header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px 40px;
   background: #020617;
 }
 
 nav a {
-  margin: 0 10px;
-  color: white;
+  margin-left: 20px;
+  color: #cbd5f5;
   text-decoration: none;
 }
 
@@ -23,48 +23,50 @@ nav a {
   padding: 120px 20px;
 }
 
+.hero h2 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
 .btn {
   background: #6366f1;
-  padding: 12px 20px;
+  padding: 12px 24px;
   border-radius: 8px;
-  text-decoration: none;
   color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
 }
 
 .info {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  padding: 40px;
-}
-
-.stats {
-  text-align: center;
-  padding: 50px;
-}
-
-.stat-grid {
-  display: flex;
-  justify-content: center;
   gap: 40px;
+  padding: 50px;
 }
 
 .plans {
   display: flex;
   justify-content: center;
   gap: 30px;
-  padding: 50px;
+  padding: 60px;
 }
 
 .card {
-  background: #1e293b;
+  background: #111827;
   padding: 25px;
   border-radius: 12px;
-  width: 220px;
+  width: 240px;
+  text-align: center;
 }
 
 .featured {
   border: 2px solid #6366f1;
+}
+
+.desc {
+  font-size: 14px;
+  color: #9ca3af;
 }
 
 .checkout-container {
@@ -75,13 +77,14 @@ nav a {
 }
 
 .checkout-box {
-  background: #1e293b;
+  background: #111827;
   padding: 30px;
   border-radius: 12px;
-  width: 350px;
+  width: 360px;
 }
 
-.checkout-box input {
+.checkout-box input,
+.checkout-box select {
   width: 100%;
   padding: 10px;
   margin: 8px 0;
@@ -89,9 +92,9 @@ nav a {
   border: none;
 }
 
-.row {
-  display: flex;
-  gap: 10px;
+.sub {
+  font-size: 14px;
+  color: #9ca3af;
 }
 
 .full {
