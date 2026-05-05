@@ -37,9 +37,9 @@ const params = new URLSearchParams(window.location.search);
 const plan = params.get("plan");
 
 const plans = {
-  basic: { name: "Basic - $5", link: "https://YOUR_LINK_BASIC" },
-  pro: { name: "Pro - $10", link: "https://YOUR_LINK_PRO" },
-  elite: { name: "Elite - $20", link: "https://YOUR_LINK_ELITE" }
+  basic: { name: "Basic - $5", link: "https://buy.stripe.com/test_aFa5kC4Pl4Q94fE67ubQY01" },
+  pro: { name: "Pro - $10", link: "https://buy.stripe.com/test_dRmdR85Tp5Ud13sfI4bQY02" },
+  elite: { name: "Elite - $20", link: "https://buy.stripe.com/test_5kQ6oG6Xtbex8vUgM8bQY03" }
 };
 
 document.getElementById("planTitle").innerText = plans[plan]?.name || "Plan";
