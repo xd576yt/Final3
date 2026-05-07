@@ -5,49 +5,109 @@
 <title>Skyfall SMP Store</title>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: #0b1120;
+    background: linear-gradient(to bottom, #0b1120, #111827);
     color: #e5e7eb;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(2, 6, 23, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 22px;
+  }
+
+  nav a {
+    margin-left: 20px;
+    color: #cbd5f5;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+
+  nav a:hover {
+    color: white;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+  }
+
+  .hero h2 {
+    font-size: 52px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 25px rgba(99,102,241,0.5);
+  }
+
+  .hero p {
+    color: #9ca3af;
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .stat-box {
+    background: #111827;
+    padding: 20px 30px;
+    border-radius: 12px;
+    min-width: 170px;
+    text-align: center;
+    border: 1px solid #1f2937;
+  }
+
+  .stat-box h3 {
+    margin: 0;
+    color: #6366f1;
+    font-size: 28px;
   }
 
   .plans {
     display: flex;
     justify-content: center;
-    gap: 25px;
-    padding: 80px 20px;
+    gap: 30px;
+    padding: 70px 20px;
     flex-wrap: wrap;
   }
 
   .card {
     background: #111827;
-    width: 260px;
-    padding: 25px;
-    border-radius: 14px;
+    width: 290px;
+    padding: 30px;
+    border-radius: 16px;
     text-align: center;
     transition: 0.25s ease;
-    border: 1px solid transparent;
+    border: 1px solid #1f2937;
+    position: relative;
   }
 
   .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     border-color: #6366f1;
-  }
-
-  .card h2 {
-    margin-bottom: 10px;
-  }
-
-  .card p {
-    margin: 5px 0;
-  }
-
-  .desc {
-    color: #9ca3af;
-    font-size: 14px;
-    margin-bottom: 15px;
   }
 
   .featured {
@@ -56,61 +116,219 @@
   }
 
   .featured:hover {
-    transform: scale(1.05) translateY(-8px);
+    transform: scale(1.05) translateY(-10px);
+  }
+
+  .badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #6366f1;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .price {
+    font-size: 42px;
+    margin: 15px 0;
+    color: white;
+  }
+
+  .desc {
+    color: #9ca3af;
+    margin-bottom: 20px;
+    min-height: 70px;
+  }
+
+  .features {
+    text-align: left;
+    margin-bottom: 25px;
+  }
+
+  .features p {
+    margin: 10px 0;
+    color: #d1d5db;
+  }
+
+  .btn-wrap {
+    display: flex;
+    justify-content: center;
   }
 
   .btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 12px 18px;
-    border-radius: 8px;
     background: #6366f1;
     color: white;
     text-decoration: none;
+    padding: 14px 22px;
+    border-radius: 10px;
     transition: 0.2s;
-    width: 100%;
+    width: 85%;
+    font-weight: 600;
   }
 
   .btn:hover {
     background: #4f46e5;
+    transform: scale(1.02);
   }
 
-  /* small title styling if used alone */
-  h1 {
+  .bottom-section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px 20px 80px;
+  }
+
+  .bottom-box {
+    background: #111827;
+    border-radius: 16px;
+    padding: 35px;
     text-align: center;
-    padding-top: 40px;
+    border: 1px solid #1f2937;
+  }
+
+  .bottom-box h2 {
+    margin-top: 0;
+  }
+
+  .bottom-box p {
+    color: #9ca3af;
+    line-height: 1.6;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: #6b7280;
+    background: #020617;
   }
 </style>
 
 </head>
 <body>
 
-<h1>Support Skyfall SMP</h1>
+<header>
+  <h1>Skyfall SMP</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="store.html">Store</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Support Skyfall SMP</h2>
+
+  <p>
+    Help support the server and unlock exclusive perks, cosmetics,
+    rewards, and premium features while keeping the community growing.
+  </p>
+
+  <div class="stats">
+    <div class="stat-box">
+      <h3>500+</h3>
+      <p>Players</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>24/7</h3>
+      <p>Online</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>99%</h3>
+      <p>Uptime</p>
+    </div>
+  </div>
+</section>
 
 <section class="plans">
 
   <div class="card">
     <h2>Basic Support</h2>
-    <p>$5</p>
-    <p class="desc">1,000 Coins every minute you play</p>
-    <a href="checkout.html?plan=basic" class="btn">Continue</a>
+
+    <div class="price">$5</div>
+
+    <p class="desc">
+      Great for casual players who want to support the server.
+    </p>
+
+    <div class="features">
+      <p>✔ 1,000 Coins per minute played</p>
+      <p>✔ Supporter Tag</p>
+      <p>✔ Access to supporter chat</p>
+    </div>
+
+    <div class="btn-wrap">
+      <a href="checkout.html?plan=basic" class="btn">Continue</a>
+    </div>
   </div>
 
   <div class="card featured">
+
+    <div class="badge">MOST POPULAR</div>
+
     <h2>Pro Support</h2>
-    <p>$10</p>
-    <p class="desc">4,000 Coins every minute you play, Custom name bar</p>
-    <a href="checkout.html?plan=pro" class="btn">Continue</a>
+
+    <div class="price">$10</div>
+
+    <p class="desc">
+      Unlock better rewards and stand out in-game.
+    </p>
+
+    <div class="features">
+      <p>✔ 4,000 Coins per minute played</p>
+      <p>✔ Custom Name Bar</p>
+      <p>✔ Exclusive Cosmetics</p>
+      <p>✔ Priority Queue</p>
+    </div>
+
+    <div class="btn-wrap">
+      <a href="checkout.html?plan=pro" class="btn">Continue</a>
+    </div>
   </div>
 
   <div class="card">
     <h2>Elite Support</h2>
-    <p>$20</p>
-    <p class="desc">Maximum support tier</p>
-    <a href="checkout.html?plan=elite" class="btn">Continue</a>
+
+    <div class="price">$20</div>
+
+    <p class="desc">
+      The ultimate way to support Skyfall SMP.
+    </p>
+
+    <div class="features">
+      <p>✔ 10,000 Coins per minute played</p>
+      <p>✔ Animated Name Bar</p>
+      <p>✔ Priority Support</p>
+      <p>✔ Exclusive Elite Rewards</p>
+    </div>
+
+    <div class="btn-wrap">
+      <a href="checkout.html?plan=elite" class="btn">Continue</a>
+    </div>
   </div>
 
 </section>
+
+<section class="bottom-section">
+  <div class="bottom-box">
+    <h2>Why Support the Server?</h2>
+
+    <p>
+      Every purchase helps improve Skyfall SMP by supporting hosting,
+      updates, events, and new features for the community.
+      Your support directly helps keep the server online and growing.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Skyfall SMP
+</footer>
 
 </body>
 </html>
