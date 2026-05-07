@@ -12,106 +12,136 @@
   body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom, #0b1120, #111827);
+    background: linear-gradient(to bottom right, #111827, #1e293b, #312e81);
     color: #e5e7eb;
   }
+
+  /* TOP NAVBAR */
 
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    background: rgba(2, 6, 23, 0.95);
-    backdrop-filter: blur(10px);
+    padding: 18px 50px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(99,102,241,0.3);
+    box-shadow: 0 4px 25px rgba(0,0,0,0.35);
     position: sticky;
     top: 0;
     z-index: 1000;
   }
 
-  header h1 {
-    margin: 0;
-    font-size: 22px;
+  .logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+  }
+
+  nav {
+    display: flex;
+    gap: 18px;
   }
 
   nav a {
-    margin-left: 20px;
-    color: #cbd5f5;
+    color: #dbeafe;
     text-decoration: none;
-    transition: 0.2s;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: 0.25s;
+    font-weight: 500;
   }
 
   nav a:hover {
+    background: rgba(99,102,241,0.2);
     color: white;
   }
 
+  /* HERO */
+
   .hero {
     text-align: center;
-    padding: 100px 20px 60px;
+    padding: 100px 20px 70px;
   }
 
   .hero h2 {
-    font-size: 52px;
-    margin-bottom: 10px;
-    text-shadow: 0 0 25px rgba(99,102,241,0.5);
+    font-size: 58px;
+    margin-bottom: 15px;
+    color: white;
+    text-shadow: 0 0 30px rgba(129,140,248,0.6);
   }
 
   .hero p {
-    color: #9ca3af;
+    color: #cbd5e1;
     font-size: 18px;
-    max-width: 700px;
+    max-width: 720px;
     margin: auto;
+    line-height: 1.6;
   }
+
+  /* STATS */
 
   .stats {
     display: flex;
     justify-content: center;
     gap: 25px;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: 45px;
   }
 
   .stat-box {
-    background: #111827;
-    padding: 20px 30px;
-    border-radius: 12px;
-    min-width: 170px;
+    background: rgba(17,24,39,0.8);
+    border: 1px solid rgba(99,102,241,0.2);
+    padding: 22px 34px;
+    border-radius: 16px;
+    min-width: 180px;
     text-align: center;
-    border: 1px solid #1f2937;
+    backdrop-filter: blur(8px);
+    transition: 0.25s;
+  }
+
+  .stat-box:hover {
+    transform: translateY(-5px);
+    border-color: #818cf8;
   }
 
   .stat-box h3 {
     margin: 0;
-    color: #6366f1;
-    font-size: 28px;
+    font-size: 30px;
+    color: #818cf8;
   }
+
+  /* PLANS */
 
   .plans {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 70px 20px;
+    gap: 35px;
+    padding: 80px 20px;
     flex-wrap: wrap;
   }
 
   .card {
-    background: #111827;
-    width: 290px;
-    padding: 30px;
-    border-radius: 16px;
+    background: rgba(17,24,39,0.92);
+    width: 300px;
+    padding: 32px;
+    border-radius: 20px;
     text-align: center;
-    transition: 0.25s ease;
-    border: 1px solid #1f2937;
+    transition: 0.3s ease;
+    border: 1px solid rgba(99,102,241,0.2);
     position: relative;
+    backdrop-filter: blur(10px);
   }
 
   .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    border-color: #6366f1;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+    border-color: #818cf8;
   }
 
   .featured {
-    border: 2px solid #6366f1;
+    border: 2px solid #818cf8;
     transform: scale(1.05);
   }
 
@@ -121,38 +151,43 @@
 
   .badge {
     position: absolute;
-    top: -12px;
+    top: -14px;
     left: 50%;
     transform: translateX(-50%);
-    background: #6366f1;
+    background: linear-gradient(to right, #6366f1, #8b5cf6);
     color: white;
-    padding: 6px 14px;
+    padding: 7px 16px;
     border-radius: 999px;
     font-size: 12px;
     font-weight: bold;
+    box-shadow: 0 0 15px rgba(99,102,241,0.5);
   }
 
   .price {
-    font-size: 42px;
-    margin: 15px 0;
+    font-size: 48px;
+    margin: 18px 0;
     color: white;
+    font-weight: bold;
   }
 
   .desc {
-    color: #9ca3af;
+    color: #cbd5e1;
     margin-bottom: 20px;
     min-height: 70px;
+    line-height: 1.5;
   }
 
   .features {
     text-align: left;
-    margin-bottom: 25px;
+    margin-bottom: 28px;
   }
 
   .features p {
-    margin: 10px 0;
-    color: #d1d5db;
+    margin: 12px 0;
+    color: #dbeafe;
   }
+
+  /* BUTTONS */
 
   .btn-wrap {
     display: flex;
@@ -160,49 +195,57 @@
   }
 
   .btn {
-    background: #6366f1;
+    background: linear-gradient(to right, #6366f1, #8b5cf6);
     color: white;
     text-decoration: none;
-    padding: 14px 22px;
-    border-radius: 10px;
-    transition: 0.2s;
-    width: 85%;
+    padding: 14px 24px;
+    border-radius: 12px;
+    width: 90%;
     font-weight: 600;
+    font-size: 15px;
+    transition: 0.25s;
+    box-shadow: 0 8px 20px rgba(99,102,241,0.35);
   }
 
   .btn:hover {
-    background: #4f46e5;
-    transform: scale(1.02);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(99,102,241,0.5);
   }
+
+  /* BOTTOM */
 
   .bottom-section {
     max-width: 1000px;
     margin: auto;
-    padding: 20px 20px 80px;
+    padding: 10px 20px 90px;
   }
 
   .bottom-box {
-    background: #111827;
-    border-radius: 16px;
-    padding: 35px;
+    background: rgba(17,24,39,0.9);
+    border-radius: 20px;
+    padding: 40px;
     text-align: center;
-    border: 1px solid #1f2937;
+    border: 1px solid rgba(99,102,241,0.2);
+    backdrop-filter: blur(10px);
   }
 
   .bottom-box h2 {
     margin-top: 0;
+    font-size: 32px;
   }
 
   .bottom-box p {
-    color: #9ca3af;
-    line-height: 1.6;
+    color: #cbd5e1;
+    line-height: 1.7;
+    font-size: 16px;
   }
 
   footer {
     text-align: center;
-    padding: 30px;
-    color: #6b7280;
-    background: #020617;
+    padding: 35px;
+    color: #94a3b8;
+    background: rgba(2,6,23,0.9);
+    border-top: 1px solid rgba(99,102,241,0.2);
   }
 </style>
 
@@ -210,7 +253,7 @@
 <body>
 
 <header>
-  <h1>Skyfall SMP</h1>
+  <div class="logo">Skyfall SMP</div>
 
   <nav>
     <a href="index.html">Home</a>
@@ -223,8 +266,8 @@
   <h2>Support Skyfall SMP</h2>
 
   <p>
-    Help support the server and unlock exclusive perks, cosmetics,
-    rewards, and premium features while keeping the community growing.
+    Unlock exclusive perks, cosmetics, and rewards while helping
+    the Skyfall SMP community continue to grow and improve.
   </p>
 
   <div class="stats">
@@ -259,7 +302,7 @@
     <div class="features">
       <p>✔ 1,000 Coins per minute played</p>
       <p>✔ Supporter Tag</p>
-      <p>✔ Access to supporter chat</p>
+      <p>✔ Supporter Chat</p>
     </div>
 
     <div class="btn-wrap">
@@ -305,6 +348,7 @@
       <p>✔ Animated Name Bar</p>
       <p>✔ Priority Support</p>
       <p>✔ Exclusive Elite Rewards</p>
+      <p>✔ Priority Queue</p>
     </div>
 
     <div class="btn-wrap">
@@ -319,9 +363,9 @@
     <h2>Why Support the Server?</h2>
 
     <p>
-      Every purchase helps improve Skyfall SMP by supporting hosting,
-      updates, events, and new features for the community.
-      Your support directly helps keep the server online and growing.
+      Every purchase helps improve Skyfall SMP through better hosting,
+      community events, updates, and brand-new features.
+      Your support keeps the server online and growing every day.
     </p>
   </div>
 </section>
