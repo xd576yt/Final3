@@ -5,33 +5,66 @@
   <title>About | Skyfall SMP</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #0b1120;
+      background: linear-gradient(to bottom right, #111827, #1e293b, #312e81);
       color: #e5e7eb;
     }
+
+    /* ===== HEADER (UPDATED TO MATCH SITE) ===== */
 
     header {
       display: flex;
       justify-content: space-between;
-      padding: 20px 40px;
-      background: #020617;
+      align-items: center;
+      padding: 18px 50px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(99,102,241,0.3);
+      box-shadow: 0 4px 25px rgba(0,0,0,0.35);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 26px;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: white;
+      text-shadow: 0 0 20px rgba(129,140,248,0.3);
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
     }
 
     nav a {
-      margin-left: 20px;
-      color: #cbd5f5;
+      color: #dbeafe;
       text-decoration: none;
-      transition: 0.2s;
+      padding: 10px 16px;
+      border-radius: 10px;
+      transition: 0.25s;
+      font-weight: 500;
     }
 
     nav a:hover {
+      background: rgba(99,102,241,0.2);
       color: white;
+      transform: translateY(-1px);
     }
 
+    /* ===== PAGE CONTENT ===== */
+
     .about-container {
-      padding: 60px 20px;
+      padding: 70px 20px;
       max-width: 1000px;
       margin: auto;
     }
@@ -42,34 +75,43 @@
     }
 
     .about-hero h2 {
-      font-size: 36px;
+      font-size: 40px;
       margin-bottom: 10px;
     }
 
     .about-hero p {
-      color: #9ca3af;
+      color: #cbd5e1;
     }
 
     .about-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
     }
 
     .about-card {
-      background: #111827;
-      padding: 20px;
-      border-radius: 12px;
-      transition: 0.2s;
+      background: rgba(17,24,39,0.92);
+      border: 1px solid rgba(99,102,241,0.18);
+      padding: 22px;
+      border-radius: 16px;
+      transition: 0.25s;
     }
 
     .about-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      transform: translateY(-6px);
+      border-color: #818cf8;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
     }
 
     .about-card h3 {
-      margin-bottom: 10px;
+      margin-top: 0;
+      color: #e0e7ff;
+    }
+
+    .about-card p,
+    .about-card li {
+      color: #cbd5e1;
+      line-height: 1.6;
     }
 
     .about-card ul {
@@ -82,24 +124,30 @@
     }
 
     .btn {
-      background: #6366f1;
-      padding: 12px 24px;
-      border-radius: 8px;
+      background: linear-gradient(to right, #6366f1, #8b5cf6);
+      padding: 14px 26px;
+      border-radius: 12px;
       color: white;
       text-decoration: none;
       display: inline-block;
       margin-top: 15px;
-      transition: 0.2s;
+      transition: 0.25s;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(99,102,241,0.35);
     }
 
     .btn:hover {
-      background: #4f46e5;
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(99,102,241,0.5);
     }
 
     footer {
       text-align: center;
-      padding: 30px;
-      color: #6b7280;
+      padding: 35px;
+      color: #94a3b8;
+      background: rgba(2,6,23,0.9);
+      border-top: 1px solid rgba(99,102,241,0.2);
+      margin-top: 50px;
     }
   </style>
 
@@ -108,6 +156,7 @@
 
 <header>
   <h1>Skyfall SMP</h1>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="store.html">Store</a>
@@ -127,7 +176,7 @@
     <div class="about-card">
       <h3>🌍 Our Server</h3>
       <p>
-        Skyfall SMP is a custom-built survival multiplayer server focused on 
+        Skyfall SMP is a custom survival multiplayer server focused on
         performance, fairness, and long-term progression.
       </p>
     </div>
@@ -145,14 +194,14 @@
     <div class="about-card">
       <h3>🎉 Community</h3>
       <p>
-        Friendly players, active staff, and constant events keep the server alive.
+        Friendly players, active staff, and weekly events keep the server alive and fun.
       </p>
     </div>
 
     <div class="about-card">
       <h3>🚀 Our Goal</h3>
       <p>
-        To create one of the best SMP experiences that keeps improving over time.
+        To build one of the most enjoyable and long-lasting SMP experiences online.
       </p>
     </div>
 
@@ -166,7 +215,7 @@
 </section>
 
 <footer>
-  <p>© 2026 Skyfall SMP</p>
+  © 2026 Skyfall SMP
 </footer>
 
 </body>
