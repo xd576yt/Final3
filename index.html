@@ -1,119 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Skyfall SMP</title>
+<meta charset="UTF-8">
+<title>Skyfall SMP</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0b1120;
-      color: #e5e7eb;
-    }
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #111827, #1e293b, #312e81);
+    color: #e5e7eb;
+  }
+
+  /* HEADER */
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(99,102,241,0.3);
+    box-shadow: 0 4px 25px rgba(0,0,0,0.35);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+  }
+
+  nav {
+    display: flex;
+    gap: 18px;
+  }
+
+  nav a {
+    color: #dbeafe;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: 0.25s;
+    font-weight: 500;
+  }
+
+  nav a:hover {
+    background: rgba(99,102,241,0.2);
+    color: white;
+  }
+
+  /* HERO */
+
+  .hero {
+    text-align: center;
+    padding: 120px 20px 80px;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .hero h1 {
+    font-size: 68px;
+    margin-bottom: 15px;
+    color: white;
+    text-shadow: 0 0 30px rgba(129,140,248,0.65);
+  }
+
+  .hero p {
+    color: #cbd5e1;
+    font-size: 20px;
+    max-width: 760px;
+    margin: auto;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    background: linear-gradient(to right, #6366f1, #8b5cf6);
+    padding: 14px 28px;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    box-shadow: 0 10px 25px rgba(99,102,241,0.35);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(99,102,241,0.45);
+  }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  /* STATS */
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 55px;
+  }
+
+  .stat-box {
+    background: rgba(17,24,39,0.85);
+    border: 1px solid rgba(99,102,241,0.2);
+    padding: 24px 36px;
+    border-radius: 18px;
+    min-width: 180px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: 0.25s;
+  }
+
+  .stat-box:hover {
+    transform: translateY(-6px);
+    border-color: #818cf8;
+  }
+
+  .stat-box h2 {
+    margin: 0;
+    font-size: 34px;
+    color: #818cf8;
+  }
+
+  .stat-box p {
+    color: #cbd5e1;
+    margin-top: 8px;
+  }
+
+  /* FEATURES */
+
+  .features {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .section-title h2 {
+    font-size: 42px;
+    margin-bottom: 10px;
+  }
+
+  .section-title p {
+    color: #cbd5e1;
+    font-size: 17px;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+  }
+
+  .feature-card {
+    background: rgba(17,24,39,0.92);
+    border: 1px solid rgba(99,102,241,0.18);
+    border-radius: 20px;
+    padding: 30px;
+    transition: 0.25s;
+    backdrop-filter: blur(10px);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    border-color: #818cf8;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  }
+
+  .feature-card h3 {
+    margin-top: 0;
+    font-size: 24px;
+  }
+
+  .feature-card p {
+    color: #cbd5e1;
+    line-height: 1.7;
+  }
+
+  /* SERVER INFO */
+
+  .server-section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .server-box {
+    background: rgba(17,24,39,0.92);
+    border-radius: 24px;
+    padding: 45px;
+    border: 1px solid rgba(99,102,241,0.18);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .server-box h2 {
+    font-size: 40px;
+    margin-top: 0;
+  }
+
+  .server-box p {
+    color: #cbd5e1;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+  .server-list p {
+    margin: 12px 0;
+    color: #dbeafe;
+  }
+
+  /* JOIN SECTION */
+
+  .join-section {
+    text-align: center;
+    padding: 90px 20px;
+  }
+
+  .join-box {
+    background: rgba(17,24,39,0.92);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 24px;
+    max-width: 900px;
+    margin: auto;
+    padding: 50px;
+  }
+
+  .join-box h2 {
+    font-size: 42px;
+    margin-top: 0;
+  }
+
+  .join-box p {
+    color: #cbd5e1;
+    line-height: 1.7;
+    margin-bottom: 30px;
+  }
+
+  /* FOOTER */
+
+  footer {
+    text-align: center;
+    padding: 35px;
+    color: #94a3b8;
+    background: rgba(2,6,23,0.9);
+    border-top: 1px solid rgba(99,102,241,0.2);
+    margin-top: 40px;
+  }
+
+  /* MOBILE */
+
+  @media (max-width: 900px) {
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background: #020617;
-      position: sticky;
-      top: 0;
-    }
-
-    header h1 {
-      font-size: 20px;
-      margin: 0;
-    }
-
-    nav a {
-      margin-left: 20px;
-      color: #cbd5f5;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    nav a:hover {
-      color: white;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 120px 20px;
-    }
-
-    .hero h2 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      color: #9ca3af;
-      font-size: 18px;
-      max-width: 600px;
-      margin: 0 auto 25px auto;
-    }
-
-    .btn {
-      background: #6366f1;
-      padding: 12px 24px;
-      border-radius: 8px;
-      color: white;
-      text-decoration: none;
-      display: inline-block;
-      transition: 0.2s;
-    }
-
-    .btn:hover {
-      background: #4f46e5;
-      transform: translateY(-2px);
-    }
-
-    .info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 60px 40px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .info div {
-      background: #111827;
+      flex-direction: column;
+      gap: 15px;
       padding: 20px;
-      border-radius: 12px;
-      transition: 0.2s;
     }
 
-    .info div:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    nav {
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .info h3 {
-      margin-top: 0;
+    .hero h1 {
+      font-size: 50px;
     }
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #6b7280;
-      background: #020617;
-      margin-top: 40px;
+    .server-box {
+      grid-template-columns: 1fr;
     }
-
-    /* small glow accent */
-    .hero h2 {
-      text-shadow: 0 0 20px rgba(99,102,241,0.4);
-    }
-  </style>
+  }
+</style>
 
 </head>
 <body>
 
 <header>
-  <h1>Skyfall SMP</h1>
+  <div class="logo">Skyfall SMP</div>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="store.html">Store</a>
@@ -121,31 +313,166 @@
   </nav>
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
-  <h2>Skyfall SMP</h2>
-  <p>A clean, competitive Minecraft survival experience built for players who want progression, events, and community.</p>
-  <a href="store.html" class="btn">Support the Server</a>
+
+  <h1>Skyfall SMP</h1>
+
+  <p>
+    A competitive Minecraft survival server built around progression,
+    custom content, community events, and a polished player experience.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="store.html" class="btn">Support the Server</a>
+    <a href="about.html" class="btn btn-secondary">Learn More</a>
+  </div>
+
+  <div class="stats">
+
+    <div class="stat-box">
+      <h2>500+</h2>
+      <p>Active Players</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>24/7</h2>
+      <p>Server Online</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>99%</h2>
+      <p>Server Uptime</p>
+    </div>
+
+  </div>
+
 </section>
 
-<section class="info">
-  <div>
-    <h3>⚡ Optimized</h3>
-    <p>High-performance server with smooth gameplay and no lag.</p>
+<!-- FEATURES -->
+
+<section class="features">
+
+  <div class="section-title">
+    <h2>Why Play Skyfall SMP?</h2>
+    <p>
+      Built for players who want more than just a basic survival server.
+    </p>
   </div>
 
-  <div>
-    <h3>🌍 Custom World</h3>
-    <p>Unique terrain, structures, and survival enhancements.</p>
+  <div class="feature-grid">
+
+    <div class="feature-card">
+      <h3>⚡ Optimized Performance</h3>
+      <p>
+        Smooth gameplay with powerful hosting and optimized server software
+        for low latency and high FPS.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>🌍 Custom Survival World</h3>
+      <p>
+        Explore unique terrain, structures, custom generation,
+        and enhanced survival mechanics.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>🎉 Weekly Events</h3>
+      <p>
+        Participate in PvP tournaments, build contests,
+        seasonal events, and community challenges.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>🛡 Active Staff Team</h3>
+      <p>
+        Friendly moderators and fast support help keep the
+        community fun, fair, and competitive.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>💎 Custom Cosmetics</h3>
+      <p>
+        Unlock tags, particles, animated effects,
+        and exclusive supporter cosmetics.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>📈 Progression System</h3>
+      <p>
+        Level up, earn rewards, unlock upgrades,
+        and compete on leaderboards.
+      </p>
+    </div>
+
   </div>
 
-  <div>
-    <h3>🎉 Events</h3>
-    <p>Weekly events with rewards, competitions, and challenges.</p>
+</section>
+
+<!-- SERVER INFO -->
+
+<section class="server-section">
+
+  <div class="server-box">
+
+    <div>
+      <h2>Built For Community</h2>
+
+      <p>
+        Skyfall SMP focuses on creating a long-lasting Minecraft
+        experience where players can build, compete, trade,
+        and grow together in a balanced economy.
+      </p>
+
+      <p>
+        Whether you enjoy survival, PvP, grinding, events,
+        or community builds, there’s always something happening.
+      </p>
+    </div>
+
+    <div class="server-list">
+      <p>✔ Custom Economy System</p>
+      <p>✔ Balanced Survival Gameplay</p>
+      <p>✔ Friendly Community</p>
+      <p>✔ Frequent Updates</p>
+      <p>✔ Cross-Server Events</p>
+      <p>✔ Premium Quality Hosting</p>
+    </div>
+
   </div>
+
+</section>
+
+<!-- JOIN SECTION -->
+
+<section class="join-section">
+
+  <div class="join-box">
+
+    <h2>Ready To Join?</h2>
+
+    <p>
+      Jump into Skyfall SMP today and experience a polished
+      Minecraft survival server designed for competitive
+      and casual players alike.
+    </p>
+
+    <a href="store.html" class="btn">
+      View Support Plans
+    </a>
+
+  </div>
+
 </section>
 
 <footer>
-  <p>© 2026 Skyfall SMP</p>
+  © 2026 Skyfall SMP • All Rights Reserved
 </footer>
 
 </body>
