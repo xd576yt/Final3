@@ -95,6 +95,10 @@
     box-shadow: 0 10px 25px rgba(99,102,241,0.35);
   }
 
+ <button class="btn" onclick="signup()">
+  Create Account
+</button>
+
   .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 15px 30px rgba(99,102,241,0.45);
@@ -443,15 +447,90 @@
 </div>
 
 <script>
+
+  // DEFAULT ADMIN ACCOUNT
+
+  const adminEmail = "hunterlee136@gmail.com";
+  const adminPassword = "hunterlee136@gmail.com";
+
+  // CREATE DEFAULT ADMIN IF NOT EXISTS
+
+  if(!localStorage.getItem("users")) {
+
+    const defaultUsers = [
+      {
+        email: adminEmail,
+        password: adminPassword,
+        role: "admin"
+      }
+    ];
+
+    localStorage.setItem("users", JSON.stringify(defaultUsers));
+  }
+
+  // SIGNUP FUNCTION
+
+  function signup() {
+
+    const email = prompt("Enter your email:");
+    const password = prompt("Create a password:");
+
+    if(!email || !password) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users"));
+
+    const existingUser = users.find(user => user.email === email);
+
+    if(existingUser) {
+      alert("Account already exists.");
+      return;
+    }
+
+    users.push({
+      email: email,
+      password: password,
+      role: "user"
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Account created successfully!");
+    alert("Verification email sent to " + email);
+
+  }
+
+  // LOGIN FUNCTION
+
   function login() {
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    if(email === "admin@skyfall.com" && password === "skyfall123") {
+    let users = JSON.parse(localStorage.getItem("users"));
 
-      document.getElementById("loginScreen").style.display = "none";
-      document.getElementById("dashboard").style.display = "block";
+    const user = users.find(
+      user => user.email === email && user.password === password
+    );
+
+    if(user) {
+
+      // ONLY ADMIN GETS DASHBOARD
+
+      if(user.role === "admin") {
+
+        document.getElementById("loginScreen").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+
+        startLiveStats();
+
+      } else {
+
+        alert("Login successful, but this account does not have dashboard access.");
+
+      }
 
     } else {
 
@@ -460,12 +539,42 @@
     }
   }
 
+  // LOGOUT
+
   function logout() {
 
     document.getElementById("dashboard").style.display = "none";
     document.getElementById("loginScreen").style.display = "flex";
 
   }
+
+  // FAKE LIVE STATS
+
+  function startLiveStats() {
+
+    const statNumbers = document.querySelectorAll(".stat-number");
+
+    let sales = 4892;
+    let visits = 28491;
+    let players = 517;
+    let purchases = 193;
+
+    setInterval(() => {
+
+      sales += Math.floor(Math.random() * 20);
+      visits += Math.floor(Math.random() * 50);
+      players += Math.floor(Math.random() * 5);
+      purchases += Math.floor(Math.random() * 2);
+
+      statNumbers[0].innerText = "$" + sales.toLocaleString();
+      statNumbers[1].innerText = visits.toLocaleString();
+      statNumbers[2].innerText = players.toLocaleString();
+      statNumbers[3].innerText = purchases.toLocaleString();
+
+    }, 4000);
+
+  }
+
 </script>
 
 </body>
