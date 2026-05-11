@@ -3,293 +3,252 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Skyfall SMP Dashboard</title>
 
 <style>
-  * {
-    box-sizing: border-box;
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(to bottom right,#111827,#1e293b,#312e81);
+  color:white;
+  min-height:100vh;
+}
+
+/* LOGIN */
+
+.login-screen{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  padding:20px;
+}
+
+.login-box{
+  width:100%;
+  max-width:420px;
+  background:rgba(17,24,39,0.92);
+  border:1px solid rgba(99,102,241,0.2);
+  backdrop-filter:blur(12px);
+  border-radius:24px;
+  padding:40px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.45);
+}
+
+.logo{
+  text-align:center;
+  font-size:36px;
+  font-weight:bold;
+  margin-bottom:10px;
+  text-shadow:0 0 20px rgba(129,140,248,0.6);
+}
+
+.subtext{
+  text-align:center;
+  color:#cbd5e1;
+  margin-bottom:30px;
+}
+
+label{
+  display:block;
+  margin-top:18px;
+  margin-bottom:8px;
+  color:#dbeafe;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:rgba(2,6,23,0.7);
+  color:white;
+  border:1px solid rgba(99,102,241,0.2);
+  font-size:15px;
+}
+
+input:focus{
+  outline:none;
+  border-color:#818cf8;
+  box-shadow:0 0 15px rgba(99,102,241,0.25);
+}
+
+.btn{
+  width:100%;
+  margin-top:18px;
+  padding:15px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(to right,#6366f1,#8b5cf6);
+  color:white;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.25s;
+  box-shadow:0 10px 25px rgba(99,102,241,0.35);
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 15px 30px rgba(99,102,241,0.45);
+}
+
+.error{
+  display:none;
+  margin-top:15px;
+  text-align:center;
+  color:#f87171;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+  display:none;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 50px;
+  background:rgba(15,23,42,0.85);
+  border-bottom:1px solid rgba(99,102,241,0.3);
+  backdrop-filter:blur(14px);
+}
+
+.header-logo{
+  font-size:28px;
+  font-weight:bold;
+}
+
+.logout-btn{
+  padding:10px 18px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  color:white;
+  background:rgba(99,102,241,0.2);
+}
+
+.dashboard-content{
+  padding:40px;
+}
+
+.welcome h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.welcome p{
+  color:#cbd5e1;
+}
+
+/* STATS */
+
+.stats-grid{
+  margin-top:35px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+}
+
+.stat-card{
+  background:rgba(17,24,39,0.92);
+  border:1px solid rgba(99,102,241,0.18);
+  border-radius:20px;
+  padding:30px;
+}
+
+.stat-card h3{
+  color:#cbd5e1;
+  margin-bottom:15px;
+}
+
+.stat-number{
+  font-size:42px;
+  font-weight:bold;
+}
+
+.positive{
+  color:#4ade80;
+  margin-top:10px;
+}
+
+/* OVERVIEW */
+
+.overview-grid{
+  margin-top:35px;
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:25px;
+}
+
+.overview-box{
+  background:rgba(17,24,39,0.92);
+  border:1px solid rgba(99,102,241,0.18);
+  border-radius:20px;
+  padding:30px;
+}
+
+.chart{
+  margin-top:25px;
+  display:flex;
+  align-items:flex-end;
+  gap:12px;
+  height:220px;
+}
+
+.bar{
+  flex:1;
+  background:linear-gradient(to top,#6366f1,#8b5cf6);
+  border-radius:10px 10px 0 0;
+  position:relative;
+}
+
+.bar span{
+  position:absolute;
+  bottom:-28px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:13px;
+  color:#cbd5e1;
+}
+
+.activity-item{
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  color:#dbeafe;
+}
+
+@media(max-width:900px){
+
+  .overview-grid{
+    grid-template-columns:1fr;
   }
 
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom right, #111827, #1e293b, #312e81);
-    color: #e5e7eb;
-    min-height: 100vh;
+  header{
+    padding:20px;
   }
 
-  /* LOGIN SCREEN */
-
-  .login-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+  .dashboard-content{
+    padding:20px;
   }
 
-  .login-box {
-    width: 100%;
-    max-width: 420px;
-    background: rgba(17,24,39,0.92);
-    border: 1px solid rgba(99,102,241,0.2);
-    backdrop-filter: blur(12px);
-    border-radius: 22px;
-    padding: 40px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.45);
-    animation: fadeIn 0.5s ease;
-  }
+}
 
-  .logo {
-    text-align: center;
-    font-size: 34px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: white;
-    text-shadow: 0 0 20px rgba(129,140,248,0.5);
-  }
-
-  .subtext {
-    text-align: center;
-    color: #cbd5e1;
-    margin-bottom: 30px;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 8px;
-    margin-top: 18px;
-    color: #dbeafe;
-    font-size: 14px;
-  }
-
-  input {
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    border: 1px solid rgba(99,102,241,0.2);
-    background: rgba(2,6,23,0.7);
-    color: white;
-    font-size: 15px;
-    transition: 0.2s;
-  }
-
-  input:focus {
-    outline: none;
-    border-color: #818cf8;
-    box-shadow: 0 0 15px rgba(99,102,241,0.25);
-  }
-
-  .btn {
-    width: 100%;
-    margin-top: 25px;
-    padding: 15px;
-    border: none;
-    border-radius: 14px;
-    background: linear-gradient(to right, #6366f1, #8b5cf6);
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.25s;
-    box-shadow: 0 10px 25px rgba(99,102,241,0.35);
-  }
-
- <button class="btn" onclick="signup()">
-  Create Account
-</button>
-
-  .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(99,102,241,0.45);
-  }
-
-  .error {
-    color: #f87171;
-    text-align: center;
-    margin-top: 15px;
-    display: none;
-  }
-
-  /* DASHBOARD */
-
-  .dashboard {
-    display: none;
-  }
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 50px;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(99,102,241,0.3);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  .header-logo {
-    font-size: 28px;
-    font-weight: bold;
-  }
-
-  .logout-btn {
-    background: rgba(99,102,241,0.15);
-    border: 1px solid rgba(99,102,241,0.3);
-    color: white;
-    padding: 10px 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.2s;
-  }
-
-  .logout-btn:hover {
-    background: rgba(99,102,241,0.25);
-  }
-
-  .dashboard-content {
-    padding: 40px;
-  }
-
-  .welcome {
-    margin-bottom: 35px;
-  }
-
-  .welcome h1 {
-    margin-bottom: 10px;
-    font-size: 42px;
-  }
-
-  .welcome p {
-    color: #cbd5e1;
-  }
-
-  /* STATS */
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
-    margin-bottom: 40px;
-  }
-
-  .stat-card {
-    background: rgba(17,24,39,0.92);
-    border: 1px solid rgba(99,102,241,0.18);
-    border-radius: 20px;
-    padding: 30px;
-    transition: 0.25s;
-  }
-
-  .stat-card:hover {
-    transform: translateY(-6px);
-    border-color: #818cf8;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-  }
-
-  .stat-card h3 {
-    margin-top: 0;
-    color: #cbd5e1;
-    font-size: 18px;
-  }
-
-  .stat-number {
-    font-size: 42px;
-    font-weight: bold;
-    color: white;
-    margin: 15px 0;
-  }
-
-  .positive {
-    color: #4ade80;
-  }
-
-  /* OVERVIEW BOXES */
-
-  .overview-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 25px;
-  }
-
-  .overview-box {
-    background: rgba(17,24,39,0.92);
-    border: 1px solid rgba(99,102,241,0.18);
-    border-radius: 20px;
-    padding: 30px;
-  }
-
-  .overview-box h2 {
-    margin-top: 0;
-  }
-
-  .chart {
-    margin-top: 25px;
-    display: flex;
-    align-items: flex-end;
-    gap: 12px;
-    height: 220px;
-  }
-
-  .bar {
-    flex: 1;
-    background: linear-gradient(to top, #6366f1, #8b5cf6);
-    border-radius: 10px 10px 0 0;
-    position: relative;
-  }
-
-  .bar span {
-    position: absolute;
-    bottom: -28px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #cbd5e1;
-    font-size: 13px;
-  }
-
-  .activity-item {
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    color: #dbeafe;
-  }
-
-  .activity-item:last-child {
-    border-bottom: none;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(15px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @media (max-width: 900px) {
-    .overview-grid {
-      grid-template-columns: 1fr;
-    }
-
-    header {
-      padding: 20px;
-    }
-
-    .dashboard-content {
-      padding: 20px;
-    }
-  }
 </style>
-
 </head>
+
 <body>
 
-<!-- LOGIN -->
+<!-- LOGIN SCREEN -->
 
 <div class="login-screen" id="loginScreen">
 
@@ -298,17 +257,21 @@
     <div class="logo">Skyfall SMP</div>
 
     <p class="subtext">
-      Admin Dashboard Login
+      Dashboard Login
     </p>
 
     <label>Email</label>
-    <input type="email" id="email" placeholder="admin@skyfallsmp.net">
+    <input type="email" id="email" placeholder="Enter Email">
 
     <label>Password</label>
-    <input type="password" id="password" placeholder="Password">
+    <input type="password" id="password" placeholder="Enter Password">
 
     <button class="btn" onclick="login()">
-      Login to Dashboard
+      Login
+    </button>
+
+    <button class="btn" onclick="signup()">
+      Create Account
     </button>
 
     <div class="error" id="error">
@@ -324,7 +287,9 @@
 <div class="dashboard" id="dashboard">
 
   <header>
-    <div class="header-logo">Skyfall SMP Dashboard</div>
+    <div class="header-logo">
+      Skyfall SMP Dashboard
+    </div>
 
     <button class="logout-btn" onclick="logout()">
       Logout
@@ -337,8 +302,7 @@
       <h1>Dashboard Overview</h1>
 
       <p>
-        Monitor server sales, traffic, player activity,
-        and support statistics.
+        Monitor server analytics and activity.
       </p>
     </div>
 
@@ -348,26 +312,26 @@
 
       <div class="stat-card">
         <h3>Total Sales</h3>
-        <div class="stat-number">$4,892</div>
-        <div class="positive">▲ +18% this month</div>
+        <div class="stat-number" id="sales">$4,892</div>
+        <div class="positive">▲ Live Updates</div>
       </div>
 
       <div class="stat-card">
         <h3>Site Visits</h3>
-        <div class="stat-number">28,491</div>
-        <div class="positive">▲ +12% this week</div>
+        <div class="stat-number" id="visits">28,491</div>
+        <div class="positive">▲ Live Updates</div>
       </div>
 
       <div class="stat-card">
         <h3>Active Players</h3>
-        <div class="stat-number">517</div>
-        <div class="positive">▲ +7% today</div>
+        <div class="stat-number" id="players">517</div>
+        <div class="positive">▲ Live Updates</div>
       </div>
 
       <div class="stat-card">
-        <h3>Support Purchases</h3>
-        <div class="stat-number">193</div>
-        <div class="positive">▲ +22% this month</div>
+        <h3>Purchases</h3>
+        <div class="stat-number" id="purchases">193</div>
+        <div class="positive">▲ Live Updates</div>
       </div>
 
     </div>
@@ -382,33 +346,13 @@
 
         <div class="chart">
 
-          <div class="bar" style="height: 45%;">
-            <span>Mon</span>
-          </div>
-
-          <div class="bar" style="height: 70%;">
-            <span>Tue</span>
-          </div>
-
-          <div class="bar" style="height: 55%;">
-            <span>Wed</span>
-          </div>
-
-          <div class="bar" style="height: 85%;">
-            <span>Thu</span>
-          </div>
-
-          <div class="bar" style="height: 95%;">
-            <span>Fri</span>
-          </div>
-
-          <div class="bar" style="height: 75%;">
-            <span>Sat</span>
-          </div>
-
-          <div class="bar" style="height: 65%;">
-            <span>Sun</span>
-          </div>
+          <div class="bar" style="height:45%"><span>Mon</span></div>
+          <div class="bar" style="height:70%"><span>Tue</span></div>
+          <div class="bar" style="height:55%"><span>Wed</span></div>
+          <div class="bar" style="height:90%"><span>Thu</span></div>
+          <div class="bar" style="height:95%"><span>Fri</span></div>
+          <div class="bar" style="height:75%"><span>Sat</span></div>
+          <div class="bar" style="height:60%"><span>Sun</span></div>
 
         </div>
 
@@ -418,25 +362,11 @@
 
         <h2>Recent Activity</h2>
 
-        <div class="activity-item">
-          ✔ New Elite Support purchase
-        </div>
-
-        <div class="activity-item">
-          ✔ 120 new site visits
-        </div>
-
-        <div class="activity-item">
-          ✔ New player joined server
-        </div>
-
-        <div class="activity-item">
-          ✔ Pro Support renewed
-        </div>
-
-        <div class="activity-item">
-          ✔ Server uptime stable
-        </div>
+        <div class="activity-item">✔ New Elite Purchase</div>
+        <div class="activity-item">✔ 150 New Visits</div>
+        <div class="activity-item">✔ Server Stable</div>
+        <div class="activity-item">✔ New Signup Created</div>
+        <div class="activity-item">✔ Store Purchase Complete</div>
 
       </div>
 
@@ -448,132 +378,136 @@
 
 <script>
 
-  // DEFAULT ADMIN ACCOUNT
+// ADMIN ACCOUNT
 
-  const adminEmail = "hunterlee136@gmail.com";
-  const adminPassword = "hunterlee136@gmail.com";
+const adminEmail = "hunterlee136@gmail.com";
+const adminPassword = "admin";
 
-  // CREATE DEFAULT ADMIN IF NOT EXISTS
+// CREATE ADMIN ACCOUNT
 
-  if(!localStorage.getItem("users")) {
+if(!localStorage.getItem("users")){
 
-    const defaultUsers = [
-      {
-        email: adminEmail,
-        password: adminPassword,
-        role: "admin"
-      }
-    ];
+  const users = [
+    {
+      email: adminEmail,
+      password: adminPassword,
+      role: "admin"
+    }
+  ];
 
-    localStorage.setItem("users", JSON.stringify(defaultUsers));
+  localStorage.setItem("users", JSON.stringify(users));
+
+}
+
+// SIGNUP
+
+function signup(){
+
+  const email = prompt("Enter your email:");
+  const password = prompt("Create a password:");
+
+  if(!email || !password){
+    alert("Please fill out all fields.");
+    return;
   }
 
-  // SIGNUP FUNCTION
+  let users = JSON.parse(localStorage.getItem("users"));
 
-  function signup() {
+  const exists = users.find(user => user.email === email);
 
-    const email = prompt("Enter your email:");
-    const password = prompt("Create a password:");
-
-    if(!email || !password) {
-      alert("Please fill out all fields.");
-      return;
-    }
-
-    let users = JSON.parse(localStorage.getItem("users"));
-
-    const existingUser = users.find(user => user.email === email);
-
-    if(existingUser) {
-      alert("Account already exists.");
-      return;
-    }
-
-    users.push({
-      email: email,
-      password: password,
-      role: "user"
-    });
-
-    localStorage.setItem("users", JSON.stringify(users));
-
-    alert("Account created successfully!");
-    alert("Verification email sent to " + email);
-
+  if(exists){
+    alert("Account already exists.");
+    return;
   }
 
-  // LOGIN FUNCTION
+  users.push({
+    email: email,
+    password: password,
+    role: "user"
+  });
 
-  function login() {
+  localStorage.setItem("users", JSON.stringify(users));
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+  alert("Account created successfully!");
+  alert("Verification email sent to " + email);
 
-    let users = JSON.parse(localStorage.getItem("users"));
+}
 
-    const user = users.find(
-      user => user.email === email && user.password === password
-    );
+// LOGIN
 
-    if(user) {
+function login(){
 
-      // ONLY ADMIN GETS DASHBOARD
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-      if(user.role === "admin") {
+  let users = JSON.parse(localStorage.getItem("users"));
 
-        document.getElementById("loginScreen").style.display = "none";
-        document.getElementById("dashboard").style.display = "block";
+  const user = users.find(
+    user => user.email === email && user.password === password
+  );
 
-        startLiveStats();
+  if(user){
 
-      } else {
+    if(user.role === "admin"){
 
-        alert("Login successful, but this account does not have dashboard access.");
+      document.getElementById("loginScreen").style.display = "none";
+      document.getElementById("dashboard").style.display = "block";
 
-      }
+      startLiveStats();
 
     } else {
 
-      document.getElementById("error").style.display = "block";
-
+      alert("User login successful.");
     }
-  }
 
-  // LOGOUT
+  } else {
 
-  function logout() {
-
-    document.getElementById("dashboard").style.display = "none";
-    document.getElementById("loginScreen").style.display = "flex";
+    document.getElementById("error").style.display = "block";
 
   }
 
-  // FAKE LIVE STATS
+}
 
-  function startLiveStats() {
+// LOGOUT
 
-    const statNumbers = document.querySelectorAll(".stat-number");
+function logout(){
 
-    let sales = 4892;
-    let visits = 28491;
-    let players = 517;
-    let purchases = 193;
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("loginScreen").style.display = "flex";
 
-    setInterval(() => {
+}
 
-      sales += Math.floor(Math.random() * 20);
-      visits += Math.floor(Math.random() * 50);
-      players += Math.floor(Math.random() * 5);
-      purchases += Math.floor(Math.random() * 2);
+// LIVE STATS
 
-      statNumbers[0].innerText = "$" + sales.toLocaleString();
-      statNumbers[1].innerText = visits.toLocaleString();
-      statNumbers[2].innerText = players.toLocaleString();
-      statNumbers[3].innerText = purchases.toLocaleString();
+function startLiveStats(){
 
-    }, 4000);
+  let sales = 4892;
+  let visits = 28491;
+  let players = 517;
+  let purchases = 193;
 
-  }
+  setInterval(() => {
+
+    sales += Math.floor(Math.random() * 20);
+    visits += Math.floor(Math.random() * 50);
+    players += Math.floor(Math.random() * 5);
+    purchases += Math.floor(Math.random() * 2);
+
+    document.getElementById("sales").innerText =
+      "$" + sales.toLocaleString();
+
+    document.getElementById("visits").innerText =
+      visits.toLocaleString();
+
+    document.getElementById("players").innerText =
+      players.toLocaleString();
+
+    document.getElementById("purchases").innerText =
+      purchases.toLocaleString();
+
+  }, 4000);
+
+}
 
 </script>
 
